@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="./assest/youtube_logo.png" type="image/x-icon">
+    <title>MeTube</title>
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <img src="./assest/youtube_logo.png" alt="youtube_logo">
+            <h1>MeTube</h1>
+        </div>
+        <div id="menu">
+            <ul id="menu_ul">
+                <li id="home">Home</li>
+                <li id="search">Search</li>
+                <li id="watch_later">Watch Later</li>
+                <li id="subscription">Subscription</li>
+                <li id="theme_mode">Dark</li>
+            </ul>
+        </div>
+    </header>
+
+    <div id="searching">
+        <div>
+            <input type="text" placeholder="Search a query" id="search_box">
+            <button id="search_btn" class="box">Search</button>
+            <button id="search_cancel_btn" class="box">Cancel</button>
+        </div>
+    </div>
+
+    <div id="main_section">
+        <div id="header_2">
+            <div id="header_2_sub_1">
+                <button class="box">Search</button>
+                <button class="box">Filters</button>
+            </div>
+            <div id="header_2_sub_2">
+                <p id="searching_result"></p>
+                <div id="filter"></div>
+            </div>
+        </div>
+
+        <div id="main"> <img class="not_found_img" src="./assest/page-not-found.png" alt="page-not-found" /></div>
+
+        <div id="pagination">
+            <div id="prev" class="box">Prev</div>
+            <div id="curr" class="box">1</div>
+            <div id="next" class="box">Next</div>
+        </div>
+    </div>
+
+    <div id="watch_later_section">
+        <h2>Watch Later</h2>
+        <div id="watch_later_portion"></div>
+    </div>
+
+    <div id="subscription_section">
+        <h2>Subscription</h2>
+        <div id="subscription_portion">
+            <div id="channel_portion"></div>
+            <button id='channel_btn' class='box'> View channel</button>
+            <div id="video_list_portion"></div>
+        </div>
+        <div id="view_channel_portion"></div>
+    </div>
+
+    <div id="bottom_menu">
+        <svg id="home_icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+            fill="#e8eaed">
+            <path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z" />
+        </svg>
+
+        <svg id="search_icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+            fill="#e8eaed">
+            <path
+                d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
+        </svg>
+
+        <svg id="watch_later_icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+            fill="#e8eaed">
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+                d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12zM12 5.5v9l6-4.5z" />
+        </svg>
+
+        <svg id="subscription_icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+            fill="#e8eaed">
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+                d="M4 6h16v2H4zm2-4h12v2H6zm14 8H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2zm0 10H4v-8h16v8zm-10-7.27v6.53L16 16z" />
+        </svg>
+        <svg id="theme_icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+            fill="#e8eaed">
+            <path
+                d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z" />
+        </svg>
+    </div>
+    <div id="video_player"> </div>
+
+    <template id="video_card_template">
+        <div class="video_card">
+            <img src="" alt="">
+            <div class="text_portion">
+                <h3 class="title"> </h3>
+                <p class="channel_name"> </p>
+                <p><span class="views"> </span><span class="date"> </span></p>
+            </div>
+        </div>
+    </template>
+
+    <template id="video_template">
+        <div>
+            <iframe width="560" height="315" src=" " title="" frameBorder="0" allowFullScreen aria-readonly="true">
+            </iframe>
+            <div class="video_player_text_portion">
+                <h3 class="title"> </h3>
+                <div class="other">
+                    <span class="likes"></span>
+                    <span class="views"> </span>
+                    <span class="date"> </span>
+                </div>
+                <details>
+                    <summary>Description</summary>
+                    <p class='description'></p>
+                </details>
+            </div>
+        </div>
+        <div class="video_player_buttons">
+            <div class="cancel_btn box">Cancel</div>
+            <!-- <div class="subscribe_btn box">Subscribe</div> -->
+        </div>
+    </template>
+
+    <template id="custom_select_template">
+        <div class="container">
+            <div class="select">
+                <select>
+                </select>
+            </div>
+        </div>
+    </template>
+    <template id="view_channel_template">
+        <div>
+            <img src=" " alt="">
+            <button class="box">Close</button>
+            <div>
+                <h2> </h2>
+                <div id="text_box">
+                    <p class="box"> </p>
+                    <p class="box"> </p>
+                    <p class="box"> </p>
+                    <p class="box"></p>
+                    <p class="box"> </p>
+                </div>
+            </div>
+            <details>
+                <summary>
+                    Description
+                </summary>
+                <p> </p>
+            </details>
+        </div>
+    </template>
+    <script type='module' src="./script.js"></script>
+</body>
+
+</html>
+
+<!-- tick
+     playlist_add
+     playlist remove
+     cancel
+ -->
