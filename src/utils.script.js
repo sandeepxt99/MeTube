@@ -1,4 +1,6 @@
 
+const API_KEY = 'XXXXX-XXXX'; // youtube v3 api key
+
 function hide(selectors) {
     selectors.forEach(selector => {
         document.querySelector(selector).style.display = 'none';
@@ -127,7 +129,7 @@ function playingVideo(item, selector, channelId = false) {
 }
 
 async function fetchingVideoList(params) {
-    const API_KEY = 'XXXXX-XXXX'; // youtube v3 api key
+    
     const URL = 'https://www.googleapis.com/youtube/v3';
     params['key'] = API_KEY
     params = new URLSearchParams(params)
@@ -183,7 +185,6 @@ async function fetchDate(query = '', filter = {},) {
 
 async function fetchSubscriptionChannelData() {
     const URI = 'https://www.googleapis.com/youtube/v3/channels'
-    const API_KEY = 'xxxxx-xxxx'; // youtube v3 api 
     let subscriptionList = JSON.parse(localStorage.getItem('subscriptionList')) || []
     if (subscriptionList.length == 0) return null;
     let params = {
